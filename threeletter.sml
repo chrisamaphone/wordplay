@@ -18,6 +18,7 @@ struct
   end
 
   val scrabbleWords = getWords "tlws.txt"
+  val increpareWords = getWords "increpare.txt"
 
   (* only works if chars is a list of characters of length 3 *)
   fun permute3 chars =
@@ -36,16 +37,16 @@ struct
 
   fun member x l = List.exists (fn y => y = x) l
 
-  fun isWord w = member w scrabbleWords
+  fun isWord dictionary w = member w dictionary
 
-  fun checkAnagramMembership word =
+  fun checkAnagramMembership dictionary word =
     let
       val anas = anagrams word
     in
-      List.all isWord anas
+      List.all (isWord dictionary) anas
     end
 
-  fun findAnagrams () =
-    List.filter checkAnagramMembership scrabbleWords
+  fun findAnagrams dict =
+    List.filter (checkAnagramMembership dict) dict 
 
 end
