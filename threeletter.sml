@@ -19,19 +19,7 @@ struct
 
   val scrabbleWords = getWords "tlws.txt"
 
-  (* different ways to slot x into l *)
-  fun slotIns x l =
-    case l of
-         [] => [[x]]
-       | (y::ys) =>
-           let
-             val shorterSlotIns = slotIns x ys
-             val xLaters = map (fn l => y::l) shorterSlotIns
-             val xFirst = x::y::ys
-           in
-             xFirst::xLaters
-           end
-
+  (* only works if chars is a list of characters of length 3 *)
   fun permute3 chars =
     case chars of
          [x, y, z] => [[x, y, z], [x, z, y], [y, x, z], [y, z, x], [z, x, y], [z, y, x]]
