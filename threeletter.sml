@@ -17,8 +17,8 @@ struct
     droplast words
   end
 
-  val scrabbleWords = getWords "tlws.txt"
-  val increpareWords = getWords "increpare.txt"
+  val scrabbleWords = getWords "scrabble3.txt"
+  val increpareWords = getWords "increpare3.txt"
 
   (* only works if chars is a list of characters of length 3 *)
   fun permute3 chars =
